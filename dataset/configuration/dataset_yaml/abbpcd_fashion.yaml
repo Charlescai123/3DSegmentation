@@ -1,0 +1,39 @@
+# name
+dataset_name: abbpcd_fashion
+
+# label
+class_map:
+  socks: 0
+  hanes: 1
+  red_hm: 2
+  sweater: 3
+  black_jacket: 4
+  bin: 5
+
+# color prediction
+color_map:
+  0:        # (Red)
+    - 237
+    - 28
+    - 36
+  1:        # (Green)
+    - 34
+    - 177
+    - 76
+  2:        # (Blue)
+    - 0
+    - 162
+    - 232
+  3:        # (Yellow)
+    - 255 
+    - 242
+    - 0
+  4:        # (Indigo)
+    - 63
+    - 72
+    - 204
+  5:        # (Brown)
+    - 200
+    - 155
+    - 100
+           

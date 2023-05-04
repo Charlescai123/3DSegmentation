@@ -1,0 +1,43 @@
+# name
+dataset_name: abbpcd_old
+
+# label
+class_map:
+  dustpan: 0
+  envelope: 1
+  ipad_cover: 2
+  pencil_box: 3
+  piab_box: 4
+  white_box: 5
+  bin: 6
+
+# color prediction
+color_map:
+  dustpan:      # (Green)
+    - 0
+    - 255
+    - 0
+  envelope:     # (Blue)
+    - 0
+    - 0
+    - 255
+  ipad_cover:   # (Red)
+    - 255
+    - 0
+    - 0
+  pencil_box:   # (Cyan)
+    - 0 
+    - 255
+    - 255
+  piab_box:     # (Yellow)
+    - 255
+    - 255
+    - 0
+  white_box:    # (Pink)
+    - 255
+    - 0
+    - 255
+  bin:          # (Brown)
+    - 200
+    - 155
+    - 100

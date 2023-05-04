@@ -1,0 +1,204 @@
+{
+    "amazon_envelope": {
+        "cameras": {
+            "1": {
+                "name": "Intel RealSense",
+                "serial_number": "6CD146030E37",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [613.263611, 0, 309.726227, 0, 613.338867, 241.199997, 0, 0, 1]
+            }
+        },
+        "generation": {
+            "data_augmentation": true,
+            "bin_gen": true,
+            "noise_filter": {
+                "apply": true,
+                "property": {                
+                    "filt_mode": "depth_value",
+                    "threshold": [33, 60],
+                    "plot": false,
+                    "plot_bins": [0, 60]
+                }
+            },
+            "write_ply": true,
+            "write_png": true,
+            "write_txt": true,
+            "verbose": false
+        },
+        "color_map_path": "../../data/prepared/collected/Challenging_Scenario/amazon_envelope/color_map.json",
+        "input_data_path": "../../data/prepared/collected/Challenging_Scenario/amazon_envelope/amazon_envelope_data",
+        "input_label_path": "../../data/prepared/collected/Challenging_Scenario/amazon_envelope/amazon_envelope_label",
+        "output_raw_path": "../../data/prepared/generated/ABBPCD_Envelope_Raw",
+        "output_split_path": "../../data/prepared/split/ABBPCD_Envelope_Split",
+        "split_ratio": {
+            "train": 7,
+            "validation": 2,
+            "test": 1
+        }
+    },
+
+    "reflective_material": {
+        "cameras": {
+            "1": {
+                "name": "Intel RealSense",
+                "serial_number": "6CD146030E37",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [613.263611, 0, 309.726227, 0, 613.338867, 241.199997, 0, 0, 1]
+            }
+        },
+        "generation": {
+            "data_augmentation": true,
+            "bin_gen": true,
+            "noise_filter": {
+                "apply": true,
+                "property": {                
+                    "filt_mode": "depth_value",
+                    "threshold": [33, 60],
+                    "plot": false,
+                    "plot_bins": [0, 60]
+                }
+            },
+            "write_ply": true,
+            "write_png": true,
+            "write_txt": true,
+            "verbose": false
+        },
+        "color_map_path": "../../data/prepared/collected/Challenging_Scenario/reflective_material/color_map.json",
+        "input_data_path": "../../data/prepared/collected/Challenging_Scenario/reflective_material/reflective_material_data",
+        "input_label_path": "../../data/prepared/collected/Challenging_Scenario/reflective_material/reflective_material_label",
+        "output_raw_path": "../../data/prepared/generated/ABBPCD_Reflection_Raw",
+        "output_split_path": "../../data/prepared/split/ABBPCD_Reflection_Split",
+        "split_ratio": {
+            "train": 7,
+            "validation": 2,
+            "test": 1
+        }
+    },
+
+    "packing_box": {
+        "cameras": {
+            "1": {
+                "name": "Intel RealSense",
+                "serial_number": "6CD146030E37",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [613.263611, 0, 309.726227, 0, 613.338867, 241.199997, 0, 0, 1]
+            }
+        },
+
+        "generation": {
+            "data_augmentation": false,
+            "bin_gen": true,
+            "noise_filter": {
+                "apply": true,
+                "property": {                
+                    "filt_mode": "depth_value",
+                    "threshold": [32, 60],
+                    "plot": false,
+                    "plot_bins": [0, 60]
+                }
+            },
+            "write_ply": true,
+            "write_png": true,
+            "write_txt": true,
+            "verbose": false
+        },
+        "color_map_path": "../../data/prepared/collected/Challenging_Scenario/packing_box/color_map.json",
+        "input_data_path": "../../data/prepared/collected/Challenging_Scenario/packing_box/packing_box_data",
+        "input_label_path": "../../data/prepared/collected/Challenging_Scenario/packing_box/packing_box_label",
+        "output_raw_path": "../../data/prepared/generated/ABBPCD_PackingBox_Raw",
+        "output_split_path": "../../data/prepared/split/ABBPCD_PackingBox_Split",
+        "split_ratio": {
+            "train": 7,
+            "validation": 2,
+            "test": 1
+        }
+    },
+
+    "fashion_item": {
+        "cameras": {
+            "1": {
+                "name": "Intel RealSense",
+                "serial_number": "6CD146030E49",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [612.815308, 0, 312.01944, 0, 612.397461, 227.341553, 0, 0, 1]
+            },
+            "2": {
+                "name": "Intel RealSense",
+                "serial_number": "6CD146030E3C",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [609.213196, 0, 313.040894, 0, 608.660034, 241.966293, 0, 0, 1]
+            }
+        },
+        "generation": {
+            "data_augmentation": true,
+            "bin_gen": true,
+            "noise_filter": {
+                "apply": true,
+                "property": {                
+                    "filt_mode": "depth_value",
+                    "threshold": [33, 60],
+                    "plot": false,
+                    "plot_bins": [0, 60]
+                }
+            },
+            "write_ply": true,
+            "write_png": true,
+            "write_txt": true,
+            "verbose": false
+        },
+        "color_map_path": "../../data/prepared/collected/Fashion_Scenario/fashion_item/color_map.json",
+        "input_data_path": "../../data/prepared/collected/Fashion_Scenario/fashion_item/fashion_item_data",
+        "input_label_path": "../../data/prepared/collected/Fashion_Scenario/fashion_item/fashion_item_label",
+        "output_raw_path": "../../data/prepared/generated/ABBPCD_Fashion_Raw",
+        "output_split_path": "../../data/prepared/split/ABBPCD_Fashion_Split",
+        "split_ratio": {
+            "train": 7,
+            "validation": 2,
+            "test": 1
+        }
+    },
+    
+    "dhl": {
+        "cameras": {
+            "1": {
+                "name": "Intel RealSense",
+                "serial_number": "211422060290",
+                "width": 640,
+                "height": 480,
+                "intrinsics": [607.013977, 0, 330.372986, 0, 605.994995, 239.869003, 0, 0, 1]
+            }
+        },
+        "generation": {
+            "data_augmentation": true,
+            "bin_gen": true,
+            "noise_filter": {
+                "apply": true,
+                "property": {                
+                    "filt_mode": "depth_value",
+                    "threshold": [33, 60],
+                    "plot": false,
+                    "plot_bins": [0, 60]
+                }
+            },
+            "write_ply": true,
+            "write_png": true,
+            "write_txt": true,
+            "verbose": false
+        },
+        "color_map_path": "../../data/prepared/collected/Challenging_Scenario/dhl/color_map.json",
+        "input_data_path": "../../data/prepared/collected/Challenging_Scenario/dhl/dhl_data",
+        "input_label_path": "../../data/prepared/collected/Challenging_Scenario/dhl/dhl_label",
+        "output_raw_path": "../../data/prepared/generated/ABBPCD_DHL_Raw",
+        "output_split_path": "../../data/prepared/split/ABBPCD_DHL_Split",
+        "split_ratio": {
+            "train": 7,
+            "validation": 2,
+            "test": 1
+        }
+    }
+}

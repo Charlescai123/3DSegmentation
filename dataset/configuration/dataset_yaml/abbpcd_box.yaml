@@ -1,0 +1,39 @@
+# name
+dataset_name: abbpcd_box
+
+# label
+class_map:
+  aspercreme_box: 0
+  aspirin_box: 1
+  bandage_box: 2
+  vicks_box: 3
+  walgreens_box: 4
+  bin: 5
+
+# color prediction
+color_map:
+  0:        # (Red)
+    - 237
+    - 28
+    - 36
+  1:        # (Orange)
+    - 255
+    - 127
+    - 39
+  2:        # (Green)
+    - 34
+    - 177
+    - 76
+  3:        # (Yellow)
+    - 255 
+    - 242
+    - 0
+  4:        # (Indigo)
+    - 63
+    - 72
+    - 204
+  5:        # (Brown)
+    - 200
+    - 155
+    - 100
+           

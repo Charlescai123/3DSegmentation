@@ -1,0 +1,39 @@
+# name
+dataset_name: abbpcd_test
+
+# label
+class_map:
+  envelope_bm3: 0
+  envelope_bm4: 1
+  envelope_bm5: 2
+  envelope_white_big: 3
+  envelope_white_small: 4
+  bin: 5
+
+# color prediction
+color_map:
+  0:        # (Red)
+    - 237
+    - 28
+    - 36
+  1:        # (Orange)
+    - 255
+    - 127
+    - 39
+  2:        # (Green)
+    - 34
+    - 177
+    - 76
+  3:        # (Yellow)
+    - 255 
+    - 242
+    - 0
+  4:        # (Indigo)
+    - 63
+    - 72
+    - 204
+  5:        # (Brown)
+    - 200
+    - 155
+    - 100
+           

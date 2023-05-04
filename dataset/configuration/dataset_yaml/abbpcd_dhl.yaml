@@ -1,0 +1,24 @@
+# name
+dataset_name: abbpcd_dhl
+
+# label
+class_map:
+  box: 0
+  envelope: 1
+  bin: 2
+
+# color prediction
+color_map:
+  0:        # (Red)
+    - 237
+    - 28
+    - 36
+  1:        # (Green)
+    - 34
+    - 177
+    - 76
+  2:        # (Brown)
+    - 200
+    - 155
+    - 100
+           
