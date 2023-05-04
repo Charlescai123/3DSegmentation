@@ -10,7 +10,7 @@ As the first transform-based DL model, Mask3D predicts accurate 3D semantic inst
 
 ---
 
-## Table of Content
+## Table of Content 
 
 * [Introduction](#introduction)
 * [Code Structure](#code-structure)
@@ -26,15 +26,18 @@ As the first transform-based DL model, Mask3D predicts accurate 3D semantic inst
 * [Trouble Shootings](#trouble-shootings)
 * [Maintainer](#maintainer)
 
-## Introduction
 ---
+
+## Introduction
+
 Depth information plays significant roles on recognizing objects under bin-picking scenarios. [Mask3D Neural Network](https://arxiv.org/abs/2210.03105) exhibits a promising prospect for improving current picking approach by segmenting items with a descent accuracy. 
 
 ![segmentation](./docs/segmentation.png)
 
+---
 
 ## Code Structure
----
+
 This is the version adapted from the codebase of [Mask3D](https://github.com/JonasSchult/Mask3D), but more modules have been added to process the raw image data collected from ABB pick-and-place lab group. The functionality of each module is listed:
 
 ```
@@ -88,9 +91,9 @@ This is the version adapted from the codebase of [Mask3D](https://github.com/Jon
 └── requirements.txt                           
 ```
 
+---
 
 ## Setup
-___
 
 Two architecture/platforms are supported: [x86_64](#x86_64) / [aarch64](#aarch64), and main modules to be installed are as following:
 
@@ -217,13 +220,16 @@ $ cd lightning && git checkout 1.7.2 && python3 setup.py install
 
 > Finally, you can check your environment by referencing [requirements-aarch64.txt](./requirements-aarch64.txt)
 
-## Model Runtime
 ---
+
+## Model Runtime
 
 Runtime includes several parts ranging from data preparation, data preprocessing to training, testing and inference for single object :
 
-### Data Processing
 ---
+
+### Data Processing
+
 
 - #### **Data Preparation**
 
@@ -287,16 +293,19 @@ $ python dataset/preprcessing/abbpcd_preprocessing.py preprocess --data_dir="./d
 ```
 > A new folder `abbpcd_test` would be generated under `data/processed/` for training
 
+---
 
 ## Training and Testing
----
+
 Indicate some necessary parameters in `scripts/abbpcd/abppcd_test.sh` like **batch_size**, **num_labels**, **datasets**, **backbone**, **voxel_size**, etc. and run script 
 ```bash
 $ bash scripts/abbpcd/abbpcd_test.sh
 ```
 
-## Inference
 ---
+
+## Inference
+
 The inference process is set up using the socket program. In `inference.sh`, you have to state **ip** and **port** for running script on socket. Also, **checkpoint path**, and information regarding **training dataset** should be indicated. After that, run script
 ```bash
 $ bash inference.sh
@@ -312,8 +321,10 @@ For inference on single image, add absolute path of generated raw folder and enc
 After that, you can check inference result accordingly
 ![inference-result](./docs/inference-result.png)
 
-## Trouble Shootings
 ---
+
+## Trouble Shootings
+
 - Some issues regarding `python module import` may happen when you run the script, just check the path and whether the package has been installed correspondently
 - This model doesn't support Multi-GPU, so remember to check your CUDA variable -- `CUDA_VISIBLE_DEVICES` every time before you start any training or testing process
 
