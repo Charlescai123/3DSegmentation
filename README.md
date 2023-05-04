@@ -8,8 +8,6 @@ As the first transform-based DL model, Mask3D predicts accurate 3D semantic inst
 <a href="https://developer.nvidia.com/cuda-toolkit"><img alt="Nvidia:CUDA" src="https://img.shields.io/badge/Nvidia-CUDA-green"></a>
 <a href="https://nvidia.github.io/MinkowskiEngine/"><img alt="Nvidia:MincowskiEngine" src="https://img.shields.io/badge/Nvidia-MincowskiEngine-blue"></a>
 
----
-
 ## Table of Content 
 
 * [Introduction](#introduction)
@@ -226,10 +224,7 @@ $ cd lightning && git checkout 1.7.2 && python3 setup.py install
 
 Runtime includes several parts ranging from data preparation, data preprocessing to training, testing and inference for single object :
 
----
-
 ### Data Processing
-
 
 - #### **Data Preparation**
 
@@ -279,8 +274,6 @@ Modify `"dataset_name"` as `"test"` in `dataset/preparation/variables.py` and ru
 $ cd dataset/preparation && python data_gen_split.py && cd -
 ```
 > After serveral minutes around, a folder `ABBPCD_Test_Split` containing split raw point cloud data would be generated under path `data/prepared/split`
-
----
 
 - #### **Preprocessing**
 Move or copy the split data folder into path `data/raw`
