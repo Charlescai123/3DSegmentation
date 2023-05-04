@@ -1,6 +1,7 @@
-## ABB_Mask3D Getting Started ##
+## 3D Segmentation Getting Started ##
 
-As the first transform-based DL model, Mask3D predicts accurate 3D semantic instances achieving state-of-the-art on ScanNet, ScanNet200, S3DIS and STPLS3D.
+As the first transform-based DL model, Mask3D predicts accurate 3D semantic instances achieving state-of-the-art on ScanNet, ScanNet200, S3DIS and STPLS3D. I collected
+several kinds of customized [dataset](https://drive.google.com/drive/folders/1hfq8Qr8ftFlnXpOH_ImwkhM_6ANr5Ury?usp=sharing) for validating the feasibility of Mask3D on robotic pick-and-place scenarios
 
 <a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
 <a href="https://pytorchlightning.ai/"><img alt="Lightning" src="https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white"></a>
@@ -22,7 +23,6 @@ As the first transform-based DL model, Mask3D predicts accurate 3D semantic inst
   * [Training and Testing](#training-and-testing)
   * [Inference](#inference)
 * [Trouble Shootings](#trouble-shootings)
-* [Maintainer](#maintainer)
 
 ---
 
@@ -321,5 +321,3 @@ After that, you can check inference result accordingly
 - Some issues regarding `python module import` may happen when you run the script, just check the path and whether the package has been installed correspondently
 - This model doesn't support Multi-GPU, so remember to check your CUDA variable -- `CUDA_VISIBLE_DEVICES` every time before you start any training or testing process
 
-## Maintainer
-- Yihao Cai (yihao.cai@us.abb.com)
