@@ -1,7 +1,9 @@
 ## 3D Segmentation Getting Started ##
 
-As the first transform-based DL model, Mask3D predicts accurate 3D semantic instances achieving state-of-the-art on ScanNet, ScanNet200, S3DIS and STPLS3D. I collected
-several kinds of customized [dataset](https://drive.google.com/drive/folders/1hfq8Qr8ftFlnXpOH_ImwkhM_6ANr5Ury?usp=sharing) for validating the feasibility of Mask3D on robotic pick-and-place scenarios
+As the first transform-based DL model, Mask3D predicts accurate 3D semantic instances achieving state-of-the-art on
+ScanNet, ScanNet200, S3DIS and STPLS3D. These
+customized [dataset](https://drive.google.com/drive/folders/1hfq8Qr8ftFlnXpOH_ImwkhM_6ANr5Ury?usp=sharing) are collected
+for validating the feasibility of Mask3D on robotic pick-and-place scenarios
 
 <a href="https://pytorch.org/get-started/locally/"><img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white"></a>
 <a href="https://pytorchlightning.ai/"><img alt="Lightning" src="https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white"></a>
@@ -9,26 +11,28 @@ several kinds of customized [dataset](https://drive.google.com/drive/folders/1hf
 <a href="https://developer.nvidia.com/cuda-toolkit"><img alt="Nvidia:CUDA" src="https://img.shields.io/badge/Nvidia-CUDA-green"></a>
 <a href="https://nvidia.github.io/MinkowskiEngine/"><img alt="Nvidia:MincowskiEngine" src="https://img.shields.io/badge/Nvidia-MincowskiEngine-blue"></a>
 
-## Table of Content 
+## Table of Content
 
 * [Introduction](#introduction)
 * [Code Structure](#code-structure)
 * [Environment Setup](#setup)
-  * [x86_64 platform](#x86_64)
-  * [aarch64 platform](#aarch64)
+    * [x86_64 platform](#x86_64)
+    * [aarch64 platform](#aarch64)
 * [Model Runtime](#model-runtime)
-  * [Data Processing](#data-processing)
-    * [Data Preparation](#data-preparation)
-    * [Preprocessing](#preprocessing)
-  * [Training and Testing](#training-and-testing)
-  * [Inference](#inference)
+    * [Data Processing](#data-processing)
+        * [Data Preparation](#data-preparation)
+        * [Preprocessing](#preprocessing)
+    * [Training and Testing](#training-and-testing)
+    * [Inference](#inference)
 * [Trouble Shootings](#trouble-shootings)
 
 ---
 
 ## Introduction
 
-Depth information plays significant roles on recognizing objects under bin-picking scenarios. [Mask3D Neural Network](https://arxiv.org/abs/2210.03105) exhibits a promising prospect for improving current picking approach by segmenting items with a descent accuracy. 
+Depth information plays significant roles on recognizing objects under bin-picking
+scenarios. [Mask3D Neural Network](https://arxiv.org/abs/2210.03105) exhibits a promising prospect for improving current
+picking approach by segmenting items with a descent accuracy.
 
 ![segmentation](./docs/segmentation.png)
 
@@ -36,7 +40,9 @@ Depth information plays significant roles on recognizing objects under bin-picki
 
 ## Code Structure
 
-This is the version adapted from the codebase of [Mask3D](https://github.com/JonasSchult/Mask3D), but more modules have been added to process the raw image data collected from ABB pick-and-place lab group. The functionality of each module is listed:
+This is the version adapted from the codebase of [Mask3D](https://github.com/JonasSchult/Mask3D), but more modules have
+been added to process the raw image data collected from common pick-and-place scenarios. The functionality of each
+module is listed:
 
 ```
 ├── benchmark
@@ -93,33 +99,37 @@ This is the version adapted from the codebase of [Mask3D](https://github.com/Jon
 
 ## Setup
 
-Two architecture/platforms are supported: [x86_64](#x86_64) / [aarch64](#aarch64), and main modules to be installed are as following:
+Two architecture/platforms are supported: [x86_64](#x86_64) / [aarch64](#aarch64), and main modules to be installed are
+as following:
 
 * `Nvidia CUDA Library`
 * `Conda Virtual Environment`
 * `PyTorch/PyTorch-Lightning`
 * `Nvidia MinkowskiEngine`
 * `Other Dependencies`
-* `Third Party`  
+* `Third Party`
 
 ### **<span style="color: lightblue" id="x86_64">x86_64</span>**
 
 ---
 The main dependencies on *x86_64* are:
+
 ```yaml
 python: 3.10.6
 cuda: 11.6
 ```
 
-You can set up a conda environment following below steps： 
+You can set up a conda environment following below steps：
 
 - **Nvidia CUDA library** `(CUDA 11.6)`
 
-Just follow the [procedure](https://developer.nvidia.com/cuda-toolkit-archive) on Nvidia website to install CUDA library of correct version from source 
+Just follow the [procedure](https://developer.nvidia.com/cuda-toolkit-archive) on Nvidia website to install CUDA library
+of correct version from source
 
 - **Create virtual environment with Anaconda** `(Python 3.10.6)`
 
-Use the [link](https://docs.anaconda.com/anaconda/install/linux/) to install *Anaconda* under linux and create virtual environment
+Use the [link](https://docs.anaconda.com/anaconda/install/linux/) to install *Anaconda* under linux and create virtual
+environment
 
 ```bash
 $ conda create --name=mask3d python=3.10.6
@@ -140,6 +150,7 @@ $ sudo apt-get -y install autoconf bc build-essential g++-8 gcc-8 clang-8 lld-8 
 ```
 
 Install torch, torchvision, torch_scatter and lightning:
+
 ```bash
 # Install torch
 $ pip install torch --extra-index-url https://download.pytorch.org/whl/cu116/torch-1.12.1%2Bcu116-cp310-cp310-linux_x86_64.whl
@@ -153,7 +164,8 @@ $ pip install torch_scatter==2.0.9 pytorch-lightning==1.7.2
 
 - **Nvidia MinkowskiEngine**
 
-MinkowskiEngine is a deep learning library which could efficiently handle large-scale 3D and 4D data with high spatial resolution (point cloud data)
+MinkowskiEngine is a deep learning library which could efficiently handle large-scale 3D and 4D data with high spatial
+resolution (point cloud data)
 
 ```bash
 # Install from source
@@ -177,17 +189,20 @@ $ pip install 'git+https://github.com/facebookresearch/detectron2.git@710e7795d0
 ```
 
 - **Third party**
+
 ```bash
 cd third_party/pointnet2 && python setup.py install
 ```
 
-> Finally, you can check your environment by referencing [requirements-x86_64.txt](./requirements-x86_64.txt) 
+> Finally, you can check your environment by referencing [requirements-x86_64.txt](./requirements-x86_64.txt)
 
 ### **<span style="color: lightblue" id="aarch64">aarch64</span>**
 
 ---
 
-Required packages are the same as on [x86_64](#x86_64), but several steps may be different. The main tested dependencies under *aarch64* are:
+Required packages are the same as on [x86_64](#x86_64), but several steps may be different. The main tested dependencies
+under *aarch64* are:
+
 ```yaml
 python: 3.8.10
 cuda: 11.4
@@ -206,6 +221,7 @@ $ python3 -m pip install --no-cache $TORCH_INSTALL
 ```
 
 Install PyTorch-Vision and PyTorch-Lightning from source
+
 ```bash
 # Install torchvision
 $ git clone https://github.com/pytorch/vision.git
@@ -222,15 +238,18 @@ $ cd lightning && git checkout 1.7.2 && python3 setup.py install
 
 ## Model Runtime
 
-Runtime includes several parts ranging from data preparation, data preprocessing to training, testing and inference for single object :
+Runtime includes several parts ranging from data preparation, data preprocessing to training, testing and inference for
+single object :
 
 ### Data Processing
 
 - #### **Data Preparation**
 
-Data Preparation phase is to generate 3D point cloud data with good quality from 2D images (RGB + Depth) which contain **original data**, **labeled data** and **color_map.json** :
+Data Preparation phase is to generate 3D point cloud data with good quality from 2D images (RGB + Depth) which contain *
+*original data**, **labeled data** and **color_map.json** :
 
 Edit yaml file in `dataset/configuration/dataset_yaml` for your dataset : (e.g.)
+
 ```yaml
 # name
 dataset_name: abbpcd_test
@@ -243,16 +262,16 @@ class_map:
 
 # color prediction
 color_map:
-  0:        # (Red)
+  0: # (Red)
     - 237
     - 28
     - 36
-  1:        # (Green)
+  1: # (Green)
     - 34
     - 177
     - 76
-  2:        # (Yellow)
-    - 255 
+  2: # (Yellow)
+    - 255
     - 242
     - 0      
 ```
@@ -269,28 +288,39 @@ Then add information about new dataset and camera in `dataset/preparation/datase
 
 ![dataset_json](./docs/dataset_json.png)
 
-Modify `"dataset_name"` as `"test"` in `dataset/preparation/variables.py` and run `data_gen_split.py` to generate raw point cloud data and split into train/test/validation set :
+Modify `"dataset_name"` as `"test"` in `dataset/preparation/variables.py` and run `data_gen_split.py` to generate raw
+point cloud data and split into train/test/validation set :
+
 ```bash
 $ cd dataset/preparation && python data_gen_split.py && cd -
 ```
-> After serveral minutes around, a folder `ABBPCD_Test_Split` containing split raw point cloud data would be generated under path `data/prepared/split`
+
+> After serveral minutes around, a folder `ABBPCD_Test_Split` containing split raw point cloud data would be generated
+> under path `data/prepared/split`
 
 - #### **Preprocessing**
+
 Move or copy the split data folder into path `data/raw`
+
 ```bash
 $ mv data/prepared/split/ABBPCD_Test_Split data/raw/abbpcd_test
 ```
+
 Run the script for preprocessing the raw data
+
 ```bash
 $ python dataset/preprcessing/abbpcd_preprocessing.py preprocess --data_dir="./data/raw/abbpcd_test" --save_dir="./data/processed/abbpcd_test" --dataset_yaml="./dataset/configuration/dataset_yaml/abbpcd_test.yaml"
 ```
+
 > A new folder `abbpcd_test` would be generated under `data/processed/` for training
 
 ---
 
 ## Training and Testing
 
-Indicate some necessary parameters in `scripts/abbpcd/abppcd_test.sh` like **batch_size**, **num_labels**, **datasets**, **backbone**, **voxel_size**, etc. and run script 
+Indicate some necessary parameters in `scripts/abbpcd/abppcd_test.sh` like **batch_size**, **num_labels**, **datasets**,
+**backbone**, **voxel_size**, etc. and run script
+
 ```bash
 $ bash scripts/abbpcd/abbpcd_test.sh
 ```
@@ -299,15 +329,20 @@ $ bash scripts/abbpcd/abbpcd_test.sh
 
 ## Inference
 
-The inference process is set up using the socket program. In `inference.sh`, you have to state **ip** and **port** for running script on socket. Also, **checkpoint path**, and information regarding **training dataset** should be indicated. After that, run script
+The inference process is set up using the socket program. In `inference.sh`, you have to state **ip** and **port** for
+running script on socket. Also, **checkpoint path**, and information regarding **training dataset** should be indicated.
+After that, run script
+
 ```bash
 $ bash inference.sh
 ``` 
+
 The model will be loaded into memory and socket keeps listening for request
 
 ![inference-runtime](./docs/inference-runtime.png)
 
-For inference on single image, add absolute path of generated raw folder and encapsulate it into HTTP request. the sender will get response 
+For inference on single image, add absolute path of generated raw folder and encapsulate it into HTTP request. the
+sender will get response
 
 ![sender](./docs/sender.png)
 
@@ -318,6 +353,8 @@ After that, you can check inference result accordingly
 
 ## Trouble Shootings
 
-- Some issues regarding `python module import` may happen when you run the script, just check the path and whether the package has been installed correspondently
-- This model doesn't support Multi-GPU, so remember to check your CUDA variable -- `CUDA_VISIBLE_DEVICES` every time before you start any training or testing process
+- Some issues regarding `python module import` may happen when you run the script, just check the path and whether the
+  package has been installed correspondently
+- This model doesn't support Multi-GPU, so remember to check your CUDA variable -- `CUDA_VISIBLE_DEVICES` every time
+  before you start any training or testing process
 
